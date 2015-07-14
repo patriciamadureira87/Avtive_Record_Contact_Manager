@@ -1,0 +1,13 @@
+<form class="contact-list" action="/users/update/<%=@user.id%>" method="post">
+	<label>
+	    First Name: <input type="text" name="first_name" value="<%=@user.first_name%>">
+	</label>
+
+	<label>
+	    Last Name: <input type="text" name="last_name" value="<%=@user.last_name%>">
+	</label>
+	  <label>
+	    Phone: <input type="text" name="phone" value="<%=@user.phone%>">
+	  </label>
+	  <button type="submit">Save</button>
+</form>

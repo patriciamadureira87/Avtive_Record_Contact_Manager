@@ -1,0 +1,45 @@
+<h1>Contact List</h1>
+
+Search contact: 
+<form method="get" action="/">
+  <label for="search"></label>
+  <input id="search" type="text" name="search">
+  <button>Search</button>
+</form>
+
+
+
+<a href="/?sort=asc">
+<button>Sort by Asc</button></a>
+
+<a href="/?sort=desc">
+<button>Sort by Desc</button></a>
+
+
+<form class="contact-list" action="/users/create" method="post">
+  <h2>Contact</h2>
+  <label>
+    First Name: <input type="text" name="first_name">
+  </label>
+   <label>
+    Last Name: <input type="text" name="last_name">
+  </label>
+  <label>
+    Phone: <input type="text" name="phone">
+  </label>
+  <button type="submit">
+    Create new contact
+  </button>
+</form>
+	<%@users.each do |user|%>
+		<ul>
+			<li><%=user.first_name%></li>
+			<li><%=user.last_name%></li>
+			<li><%=user.phone%></li>
+				<a href= "/users/edit/<%= user.id %>"><button>Update</button></a>
+				<form action="/users/remove/<%=user.id%>" method="post">
+				<button>Remove</button>
+				</form>
+		</ul>
+	<%end%>
+
